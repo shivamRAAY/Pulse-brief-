@@ -1,0 +1,141 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-serif: 'Newsreader', 'Cormorant Garamond', Georgia, serif;
+    --font-headline: 'Playfair Display', 'Newsreader', serif;
+    --font-masthead: 'UnifrakturMaguntia', 'Pirata One', 'Cinzel', serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --font-devanagari: 'Noto Sans Devanagari', sans-serif;
+
+    /* Living Newspaper Palette */
+    --color-paper: #F4EFEA;
+    --color-paper-light: #FAF6EE;
+    --color-ink: #12110F;
+    --color-rule: #2B2621;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+  }
+}
+
+.font-masthead {
+  font-family: var(--font-masthead);
+}
+
+.font-headline {
+  font-family: var(--font-headline);
+}
+
+.font-editorial {
+  font-family: var(--font-serif);
+}
+
+.font-tabular {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.font-hindi {
+  font-family: var(--font-devanagari);
+}
+
+/* Authentic Newspaper Rules & Borders */
+.border-double-thick {
+  border-style: double;
+  border-width: 4px;
+}
+
+.border-double-top {
+  border-top-style: double;
+  border-top-width: 4px;
+}
+
+.border-double-bottom {
+  border-bottom-style: double;
+  border-bottom-width: 4px;
+}
+
+.border-column-rule {
+  border-right-width: 1px;
+  border-right-color: currentColor;
+  opacity: 0.85;
+}
+
+/* Retro-Print Halftone / Dither Screen effect */
+.halftone-screen {
+  position: relative;
+}
+
+.halftone-screen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(0, 0, 0, 0.15) 1px, transparent 1px);
+  background-size: 3px 3px;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.dark .halftone-screen::after {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+}
+
+/* Subtle Aged Paper Texture Grain */
+.paper-grain {
+  background-color: #F4EFEA;
+  background-image: 
+    radial-gradient(#D6CABE 0.5px, transparent 0.5px),
+    radial-gradient(#D6CABE 0.5px, #F4EFEA 0.5px);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
+}
+
+.dark .paper-grain {
+  background-color: #12110F;
+  background-image: 
+    radial-gradient(#25221E 0.5px, transparent 0.5px),
+    radial-gradient(#25221E 0.5px, #12110F 0.5px);
+  background-size: 20px 20px;
+  background-position: 0 0, 10px 10px;
+}
+
+/* Custom subtle scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(43, 38, 33, 0.25);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(43, 38, 33, 0.45);
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(244, 239, 234, 0.2);
+}
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: rgba(244, 239, 234, 0.35);
+}
+
+/* Accessible reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

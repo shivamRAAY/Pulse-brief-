@@ -1,0 +1,6 @@
+{
+  "name": "PulseBrief",
+  "description": "Premium Current Affairs & News Intelligence Platform — India First. World In Focus.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
